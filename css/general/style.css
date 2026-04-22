@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("../../font/GlacialIndifference/GlacialIndifference-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Madelyn Rough";
+  src: url("../../font/MadelynRough/madelyn_regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SEGO";
+  src: url("../../font/Sego/sego/SEGO.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rabbits Bro";
+  src: url("../../font/RabbitsBro/Rabbits-Bro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  min-height: 100vh;
+  background-color: #ffecdb;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  background: #f7e3d5;
+  padding: clamp(16px, 4vw, 30px);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los espacios de imágenes */
+.image-placeholder {
+  width: 100%;
+  margin: 15px 0;
+  overflow: hidden;
+  height: clamp(160px, 45vw, 240px) !important;
+  border: 2px dashed #999;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.section {
+  margin-bottom: clamp(16px, 4vw, 25px);
+  text-align: center;
+}
+.quote {
+  font-style: italic;
+  color: #555;
+  margin: 20px 0;
+}
+.info-box {
+  border: 1px solid #ddd;
+  padding: clamp(12px, 3vw, 15px);
+  margin-top: 20px;
+}
+h1 {
+  font-family: "Great Vibes", cursive;
+  color: #d4af37;
+  margin: 10px 0;
+  font-size: 3em;
+  font-weight: 400;
+}
+.destacado {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.titulo-cancion {
+  font-family: "Glacial Indifference", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.6em;
+}
+h1 {
+  font-family: "Madelyn Rough", "Great Vibes", cursive;
+  color: #d4af37;
+  margin: 10px 0;
+  font-size: 3em;
+  font-weight: 400;
+}
+.titulo-xv {
+  font-size: 3.9em;
+  color: #000;
+  margin: 0 0 2px 0; /* menos espacio abajo */
+  line-height: 1;
+}
+.titulo-nombre {
+  font-family: "SEGO", Arial, sans-serif;
+  font-size: clamp(2.5em, 12vw, 5em); /* Cambio aquí */
+  margin: 0;
+  line-height: 1;
+  color: #07461c;
+}
+.subtitulo-nombre {
+  font-family: "Rabbits Bro", Arial, sans-serif;
+  font-size: 2em;
+  margin: 0; /* quita separación extra */
+  line-height: 1;
+  color: #07461c;
+}
+.fecha {
+  font-family: "Rabbits Bro", Arial, sans-serif;
+  font-size: clamp(1.2em, 5vw, 2em); /* Cambio aquí */
+  margin: 0; /* quita separación extra */
+  line-height: 1;
+  color: black;
+}
+.texto-historia {
+  font-family: "Glacial Indifference", Arial, sans-serif;
+  font-weight: 400;
+}
+.dia-semana {
+  font-family: "Glacial Indifference", Arial, sans-serif;
+  font-weight: 300; /* más delgada */
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+}
+.info-box .titulo-nombre {
+  margin-top: -10px;
+  margin-bottom: 12px; /* entre 5 y 15 px hacia arriba */
+}
+.title-ubi {
+  font-family: "Rabbits Bro", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+.texto-historia p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}

@@ -1,0 +1,113 @@
+/* Estilos para el reproductor de música */
+      .music-player {
+        background: #f7e3d5; /* El color crema de tu imagen */
+        padding: 15px 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: 15px auto;
+      }
+
+      /* Contenedor de la barra para mayor área de click */
+      .progress-container {
+        padding: 8px 0 15px 0;
+        cursor: pointer;
+      }
+
+      .progress-bar {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background: #33333344; /* Línea sutil */
+        border-radius: 2px;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: #333;
+        width: 0%;
+      }
+
+      .progress-dot {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: #000;
+        border-radius: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 0%;
+      }
+
+      .player-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .control-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s;
+        padding: 0;
+        width: auto;
+        height: auto;
+      }
+
+      .control-btn:hover:not(:disabled) {
+        opacity: 0.7;
+      }
+
+      .control-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Iconos de las esquinas (shuffle y repeat) */
+      .sm-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .play-btn {
+        background: #000;
+        color: #fff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        padding: 0;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        line-height: 0;
+        overflow: hidden;
+      }
+
+      .play-btn svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        stroke: white;
+      }
+
+      .play-btn:hover:not(:disabled) {
+        background: #333;
+      }
+
+      .play-btn:active {
+        transform: none;
+      }
+
+      .play-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #000, 0 0 0 4px rgba(0, 0, 0, 0.3);
+      }
