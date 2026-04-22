@@ -16,9 +16,9 @@
     <style>
       @font-face {
         font-family: "Glacial Indifference";
-        src: url("./font/GlacialIndifference/GlacialIndifference-Bold.otf")
+        src: url("./font/GlacialIndifference/GlacialIndifference-Regular.otf")
           format("opentype");
-        font-weight: 700;
+        font-weight: 400;
         font-style: normal;
       }
       @font-face {
@@ -30,6 +30,12 @@
       @font-face {
         font-family: "SEGO";
         src: url("./font/Sego/sego/SEGO.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Rabbits Bro";
+        src: url("./font/RabbitsBro/Rabbits-Bro.ttf") format("truetype");
         font-weight: 400;
         font-style: normal;
       }
@@ -115,6 +121,44 @@
         line-height: 1;
         color: #07461c;
       }
+      .subtitulo-nombre {
+        font-family: "Rabbits Bro", Arial, sans-serif;
+        font-size: 2em;
+        margin: 0; /* quita separación extra */
+        line-height: 1;
+        color: #07461c;
+      }
+      .fecha {
+        font-family: "Rabbits Bro", Arial, sans-serif;
+        font-size: 2em;
+        margin: 0; /* quita separación extra */
+        line-height: 1;
+        color: black;
+      }
+      .texto-historia {
+        font-family: "Glacial Indifference", Arial, sans-serif;
+        font-weight: 400;
+      }
+      .dia-semana {
+        font-family: "Glacial Indifference", Arial, sans-serif;
+        font-weight: 300; /* más delgada */
+        font-size: 1.2em;
+        letter-spacing: 0.5px;
+      }
+      .info-box .titulo-nombre {
+        margin-top: -30px;
+        margin-bottom: 12px; /* entre 5 y 15 px hacia arriba */
+      }
+      .title-ubi {
+        font-family: "Rabbits Bro", Arial, sans-serif;
+        font-weight: 500;
+        font-size: 1.5em;
+      }
+      .texto-historia p {
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+      }
     </style>
   </head>
   <body>
@@ -163,58 +207,94 @@
       </div>
 
       <div class="section">
-        <p>
-          Hoy dejo atrás mi niñez para comenzar una nueva etapa de mi vida, han
-          llegado mis quince años y con ellos un mundo de sueños, metas y deseos
-          por cumplir. [cite: 7]
-        </p>
-        <p>
-          Un nuevo capítulo comienza y en este día tan especial, quiero rodearme
-          de personas que hacen mi vida más hermosa. [cite: 8]
-        </p>
+        <div class="texto-historia">
+          <p>
+            Hoy dejo atrás mi niñez para comenzar una nueva etapa de mi vida,
+            han llegado mis quince años y con ellos un mundo de sueños, metas y
+            deseos por cumplir.
+          </p>
+          <p>
+            Un nuevo capítulo comienza y en este día tan especial, quiero
+            rodearme de personas que hacen mi vida más hermosa.
+          </p>
+        </div>
       </div>
-
+      <div
+        class="image-placeholder"
+        style="
+          height: 200px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/img02.jpeg"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
       <div class="section info-box">
-        <h3>Aparta la Fecha [cite: 9]</h3>
-        <p class="destacado">SÁBADO [cite: 9]</p>
-        <p>30/05/2026 [cite: 10]</p>
-        <p>07:00 P.M [cite: 10]</p>
-        <p>
-          <strong>Ubicación:</strong> Barrio La Cruz, detrás del Bloque 6 de la
-          Urb. José Gil Fortoul, casa N°19. [cite: 11]
+        <h3 class="subtitulo-nombre">Aparta la Fecha</h3>
+        <p class="destacado dia-semana">SÁBADO</p>
+        <p class="titulo-nombre">30|05|2026</p>
+        <p class="fecha">07:00 P.M</p>
+        <p class="texto-historia">
+          <strong class="title-ubi">Ubicación:</strong> Barrio La Cruz, detrás
+          del Bloque 6 de la Urb. José Gil Fortoul, casa N°19.
         </p>
       </div>
-
+      <div
+        class="image-placeholder"
+        style="
+          height: 200px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/img02.jpeg"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
       <div class="section">
-        <p>
+        <p class="texto-historia">
           Me gustaría contar con tu presencia y que puedas compartir conmigo
-          este día tan especial: [cite: 12]
+          este día tan especial:
         </p>
-        <p class="destacado">Mileidy N. [cite: 13]</p>
+        <p class="titulo-nombre">Mileidy N.</p>
       </div>
 
       <div
-        class="section"
-        style="font-size: 0.9em; background: #fff5f8; padding: 10px"
+        class="section texto-historia"
+        style="font-size: 1.2em; padding: 10px"
       >
         <p>
           Por favor, confirmar asistencia antes de la fecha, en caso de algún
-          inconveniente, notificar. [cite: 14]
+          inconveniente, notificar.
         </p>
-        <p><strong>Válida para: 01 Invitado [cite: 15]</strong></p>
+        <p>Válida para:</p>
+        <p><strong>01 Invitado</strong></p>
       </div>
 
       <div class="section">
-        <h3>¡Te esperamos! [cite: 16]</h3>
+        <h3 class="subtitulo-nombre">¡Te esperamos!</h3>
       </div>
 
-      <div class="quote">
+      <div
+        class="section texto-historia"
+        style="font-size: 1.5em; padding: 10px"
+      >
         "Hay quienes dicen que el destino está fuera de nuestro control, que el
         destino no nos pertenece, pero yo sé que no es así. Nuestro destino
         reside en nuestro interior, solo hay que tener el valor suficiente para
-        verlo." [cite: 17]
-        <br /><br />
-        <strong>— Princesa Mérida [cite: 18]</strong>
+        verlo."
+        <br />
+        <strong>- Princesa Mérida</strong>
       </div>
     </div>
   </body>
