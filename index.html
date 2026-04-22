@@ -1,0 +1,9 @@
+<div id="section1-container"></div>
+
+<script>
+  fetch("Componentes/Section01.html")
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("section1-container").innerHTML = html;
+    });
+</script>
