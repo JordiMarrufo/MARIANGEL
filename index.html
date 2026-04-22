@@ -8,9 +8,32 @@
     <!-- Fuente Great Vibes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
+      @font-face {
+        font-family: "Glacial Indifference";
+        src: url("./font/GlacialIndifference/GlacialIndifference-Bold.otf")
+          format("opentype");
+        font-weight: 700;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Madelyn Rough";
+        src: url("./font/MadelynRough/madelyn_regular.ttf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "SEGO";
+        src: url("./font/Sego/sego/SEGO.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
       body {
         font-family: "Arial", sans-serif;
         line-height: 1.6;
@@ -67,6 +90,31 @@
         font-weight: bold;
         font-size: 1.2em;
       }
+      .titulo-cancion {
+        font-family: "Glacial Indifference", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1.6em;
+      }
+      h1 {
+        font-family: "Madelyn Rough", "Great Vibes", cursive;
+        color: #d4af37;
+        margin: 10px 0;
+        font-size: 3em;
+        font-weight: 400;
+      }
+      .titulo-xv {
+        font-size: 3.9em;
+        color: #000;
+        margin: 0 0 2px 0; /* menos espacio abajo */
+        line-height: 1;
+      }
+      .titulo-nombre {
+        font-family: "SEGO", Arial, sans-serif;
+        font-size: 5em;
+        margin: 0; /* quita separación extra */
+        line-height: 1;
+        color: #07461c;
+      }
     </style>
   </head>
   <body>
@@ -88,7 +136,9 @@
         />
       </div>
       <div class="section">
-        <p style="font-weight: bold; font-size: 1.6em">Con Toda Libertad</p>
+        <p class="titulo-cancion" style="font-weight: bold; font-size: 1.6em">
+          Con Toda Libertad
+        </p>
       </div>
       <div class="section">
         <p>Distante estrella es este amor...</p>
@@ -108,8 +158,8 @@
 
       <div class="section">
         <p class="destacado">¡Dale Play a la Música! [cite: 5]</p>
-        <h1>Mis XV años</h1>
-        <h2 style="font-size: 2.5em">Mariangel [cite: 6]</h2>
+        <h1 class="titulo-xv">Mis XV años</h1>
+        <h2 class="titulo-nombre">Mariangel</h2>
       </div>
 
       <div class="section">
