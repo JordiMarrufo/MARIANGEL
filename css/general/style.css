@@ -124,7 +124,7 @@ h1 {
 }
 .titulo-nombre {
   font-family: "SEGO", Arial, sans-serif;
-  font-size: clamp(2.5em, 12vw, 5em); /* Cambio aquí */
+  font-size: clamp(1.5em, 12vw, 5em); /* Cambio aquí */
   margin: 0;
   line-height: 1;
   color: #07461c;
@@ -166,4 +166,35 @@ h1 {
   margin: 0;
   padding: 0;
   line-height: 1.2;
+}
+.separador-ondulado {
+  width: 100vw;
+  height: 100px;
+  background: linear-gradient(135deg, #e0b0ff 0%, #b993d6 50%, #8b5fbf 100%);
+  margin: 0;
+  margin-left: calc(-50vw + 50%);
+  margin-top: -30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.separador-ondulado::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      transparent 20%,
+      rgba(255, 255, 255, 0.3) 20.5%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      transparent 20%,
+      rgba(255, 255, 255, 0.3) 20.5%
+    );
+  background-size: 100px 50px;
 }

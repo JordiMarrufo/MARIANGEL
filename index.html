@@ -18,6 +18,22 @@
   <body>
     <div class="container">
       <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
+      <div
         class="image-placeholder"
         style="
           height: 200px;
@@ -33,6 +49,8 @@
           style="width: 100%; height: 100%; object-fit: cover; display: block"
         />
       </div>
+      <br />
+      <br />
       <div class="section">
         <p class="titulo-cancion" style="font-weight: bold; font-size: 1.6em">
           Con Toda Libertad
@@ -44,15 +62,22 @@
         <div class="music-player">
           <div class="progress-container">
             <div class="progress-bar">
-              <div class="progress-fill" style="width: 20%"></div>
-              <div class="progress-dot" style="left: 20%"></div>
+              <div class="progress-fill" style="width: 0%"></div>
+              <div class="progress-dot" style="left: 0%"></div>
             </div>
           </div>
 
           <div class="player-controls">
             <!-- Botón Shuffle (estático) -->
             <button class="control-btn sm-btn" type="button" disabled>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M3 17a4 4 0 1 1 4 4m6-1a4 4 0 1 0-4-4"></path>
                 <path d="M21 7L3 17m0-10l18 10"></path>
               </svg>
@@ -60,34 +85,87 @@
 
             <!-- Botón Previous (estático) -->
             <button class="control-btn" type="button" disabled>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <path d="M4 4v16h2V4H4zm16 8L6 4v16l14-8z"></path>
               </svg>
             </button>
 
             <!-- Botón Play (funcional) -->
             <button class="control-btn play-btn" id="playBtn" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-play"
+              >
+                <path
+                  d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"
+                />
+              </svg>
             </button>
 
             <!-- Botón Pause (funcional) -->
-            <button class="control-btn play-btn" id="pauseBtn" type="button" style="display: none;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></svg>
+            <button
+              class="control-btn play-btn"
+              id="pauseBtn"
+              type="button"
+              style="display: none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-pause"
+              >
+                <rect x="14" y="3" width="5" height="18" rx="1" />
+                <rect x="5" y="3" width="5" height="18" rx="1" />
+              </svg>
             </button>
 
             <!-- Botón Next (estático) -->
             <button class="control-btn" type="button" disabled>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <path d="M18 4v16h2V4h-2zM2 4l14 8-14 8V4z"></path>
               </svg>
             </button>
 
             <!-- Botón Repeat (estático) -->
             <button class="control-btn sm-btn" type="button" disabled>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M1 4v6h6"></path>
                 <path d="M23 20v-6h-6"></path>
-                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                <path
+                  d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"
+                ></path>
               </svg>
             </button>
           </div>
@@ -98,6 +176,16 @@
 
       <div class="section">
         <p class="destacado">¡Dale Play a la Música!</p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <h1 class="titulo-xv">Mis XV años</h1>
         <h2 class="titulo-nombre">Mariangel</h2>
       </div>
@@ -116,6 +204,22 @@
         </div>
       </div>
       <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
+      <div
         class="image-placeholder"
         style="
           height: 200px;
@@ -131,15 +235,47 @@
           style="width: 100%; height: 100%; object-fit: cover; display: block"
         />
       </div>
+      <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
       <div class="section info-box">
         <h3 class="subtitulo-nombre">Aparta la Fecha</h3>
         <p class="destacado dia-semana">SÁBADO</p>
-        <p class="titulo-nombre">30|05|2026</p>
+        <p class="titulo-nombre">30 | 05 | 2026</p>
         <p class="fecha">07:00 P.M</p>
         <p class="texto-historia">
           <strong class="title-ubi">Ubicación:</strong> Barrio La Cruz, detrás
           del Bloque 6 de la Urb. José Gil Fortoul, casa N°19.
         </p>
+      </div>
+      <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
       </div>
       <div
         class="image-placeholder"
@@ -153,6 +289,22 @@
       >
         <img
           src="./img/img02.jpeg"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
+      <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
           alt="Con Toda Libertad"
           style="width: 100%; height: 100%; object-fit: cover; display: block"
         />
@@ -180,7 +332,22 @@
       <div class="section">
         <h3 class="subtitulo-nombre">¡Te esperamos!</h3>
       </div>
-
+      <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
       <div
         class="section texto-historia"
         style="font-size: 1.5em; padding: 10px"
@@ -204,6 +371,22 @@
       >
         <img
           src="./img/img02.jpeg"
+          alt="Con Toda Libertad"
+          style="width: 100%; height: 100%; object-fit: cover; display: block"
+        />
+      </div>
+      <div
+        class="separador-ondulado"
+        style="
+          height: 100px;
+          padding: 0;
+          overflow: hidden;
+          border: none;
+          background: transparent;
+        "
+      >
+        <img
+          src="./img/separador/separador-01.png"
           alt="Con Toda Libertad"
           style="width: 100%; height: 100%; object-fit: cover; display: block"
         />
