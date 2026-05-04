@@ -113,7 +113,14 @@ function compartirInvitacion(id) {
 async function handleSubmitFormulario(e) {
     e.preventDefault();
 
-    const nombre = document.getElementById('nombre').value;
+    const inputNombre = document.getElementById('nombre');
+
+if (!inputNombre) {
+    console.error("No existe el input #nombre");
+    return;
+}
+
+const nombre = inputNombre.value;
 
     try {
         let resultado;
