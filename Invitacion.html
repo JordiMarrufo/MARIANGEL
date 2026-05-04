@@ -6,6 +6,7 @@
     <title>Invitación Mariangel - XV Años</title>
 
     <!-- Fuente Great Vibes -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +16,23 @@
     <link rel="stylesheet" href="./css/general/style.css" />
     <link rel="stylesheet" href="./css/reproductor/cssrepro.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.min.js"></script>
+
+    <!-- Fuente Glacial Indifference -->
+    <style>
+      @font-face {
+        font-family: "Glacial Indifference";
+        src: url("./font/GlacialIndifference/GlacialIndifference-Regular.otf")
+          format("opentype");
+      }
+
+      .letra-especial {
+        font-family: "Glacial Indifference", serif;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -64,7 +82,9 @@
         </p>
       </div>
       <div class="section" data-aos="fade-up">
-        <p style="margin-bottom: 20px">Distante estrella es este amor...</p>
+        <p style="margin-bottom: 3px; font-size: 1.3em" class="letra-especial">
+          Distante estrella es este amor...
+        </p>
 
         <div class="music-player">
           <div class="progress-container">
@@ -179,10 +199,10 @@
 
           <audio id="audioPlayer" src="./audio/audiofondo.mp3"></audio>
         </div>
+        <p class="destacado" class="letra-especial">¡Dale Play a la Música!</p>
       </div>
 
       <div class="section" data-aos="fade-up">
-        <p class="destacado">¡Dale Play a la Música!</p>
         <br />
         <br />
         <br />
@@ -193,8 +213,8 @@
         <br />
         <br />
         <br />
-        <h1 class="titulo-xv">Mis XV años</h1>
-        <h2 class="titulo-nombre">Mariangel</h2>
+        <h1 class="titulo-xv" data-aos="fade-up">Mis XV años</h1>
+        <h2 class="titulo-nombre" data-aos="fade-up">Mariangel</h2>
       </div>
 
       <div class="section" data-aos="fade-up">
@@ -302,7 +322,13 @@
         <img
           src="./img/img01.jpeg"
           alt="Con Toda Libertad"
-          style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block"
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+          "
         />
       </div>
       <div
@@ -366,7 +392,7 @@
       <div
         class="section texto-historia"
         data-aos="fade-up"
-        style="font-size: 1.5em; padding: 10px"
+        style="font-size: 1.2em; padding: 10px"
       >
         "Hay quienes dicen que el destino está fuera de nuestro control, que el
         destino no nos pertenece, pero yo sé que no es así. Nuestro destino
@@ -419,7 +445,27 @@
   </body>
 </html>
 <script src="./js/repro.js" defer></script>
+
 <script>
+  // Confeti al cargar la página
+  function triggerConfetti() {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+  }
+
+  // Dispara confeti cuando la página carga completamente
+  window.addEventListener("load", () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    triggerConfetti();
+  });
+
   // Obtener parámetro ID de la URL
   const urlParams = new URLSearchParams(window.location.search);
   const invitadoId = urlParams.get("id");
@@ -451,30 +497,30 @@
       .catch((error) =>
         console.error("Error al obtener datos del invitado:", error),
       );
-  }
 
-  // Crear arcos y flechas cayendo
-  function createArrowsAndBows() {
-    const count = 50;
-    const symbols = ["❅"]; // Arcos y flechas
-  
-    for (let i = 0; i < count; i++) {
-      const element = document.createElement("div");
-      element.classList.add("snowflake");
-      element.innerHTML = symbols[i % symbols.length];
-      element.style.left = Math.random() * window.innerWidth + "px";
-      element.style.animationDuration = (Math.random() * 10 + 10) + "s";
-      element.style.animationDelay = Math.random() * 2 + "s";
-      element.style.fontSize = (Math.random() * 1.2 + 0.8) + "em";
-      document.body.appendChild(element);
+    // Crear arcos y flechas cayendo
+    function createArrowsAndBows() {
+      const count = 50;
+      const symbols = ["❅"]; // Arcos y flechas
+
+      for (let i = 0; i < count; i++) {
+        const element = document.createElement("div");
+        element.classList.add("snowflake");
+        element.innerHTML = symbols[i % symbols.length];
+        element.style.left = Math.random() * window.innerWidth + "px";
+        element.style.animationDuration = Math.random() * 10 + 10 + "s";
+        element.style.animationDelay = Math.random() * 2 + "s";
+        element.style.fontSize = Math.random() * 1.2 + 0.8 + "em";
+        document.body.appendChild(element);
+      }
     }
+    createArrowsAndBows();
   }
-  createArrowsAndBows();
 </script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
   AOS.init({
     duration: 800,
-    once: false
+    once: false,
   });
 </script>
