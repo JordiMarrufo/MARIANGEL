@@ -95,7 +95,7 @@ function abrirInvitacion(id) {
 
 // Función para compartir la invitación
 function compartirInvitacion(id) {
-  const enlace = `${window.location.origin}${window.location.pathname.replace(/\/[^\/]*$/, "")}/Invitacion.html?id=${id}`;
+  const enlace = `${window.location.origin}/Invitacion.html?id=${id}`;
 
   // Si el dispositivo soporta Web Share API (móviles)
   if (navigator.share) {
