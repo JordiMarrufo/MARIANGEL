@@ -95,6 +95,64 @@
         color: #333;
         margin-top: 0;
       }
+      @media (max-width: 768px) {
+        .table-section {
+          overflow-x: auto;
+        }
+
+        table {
+          min-width: 100%;
+          font-size: 12px;
+        }
+
+        .actions button {
+          padding: 3px 6px;
+          font-size: 10px;
+          white-space: nowrap;
+        }
+
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+
+        thead {
+          display: none;
+        }
+
+        tr {
+          margin-bottom: 15px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          padding: 10px;
+        }
+
+        td {
+          border: none;
+          padding: 8px 0;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        td:before {
+          content: attr(data-label);
+          font-weight: bold;
+          width: 100px;
+        }
+
+        .actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .actions button {
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>

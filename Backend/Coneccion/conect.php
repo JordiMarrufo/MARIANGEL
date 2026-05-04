@@ -1,8 +1,8 @@
 <?php
 // Configuración de la base de datos
 $servername = "localhost";  // Tu servidor
-$username = "marixv";         // Tu usuario de BD
-$password = "marixv";             // Tu contraseña
+$username = "root";         // Tu usuario de BD
+$password = "marrufo";             // Tu contraseña
 $dbname = "mariangel";      // Nombre de tu BD
 
 // Crear la conexión
@@ -21,4 +21,3 @@ echo "Conexión exitosa a la base de datos";
 
 // Para cerrar la conexión (cuando ya no la necesites):
 // $conn->close();
-?>

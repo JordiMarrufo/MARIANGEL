@@ -72,9 +72,9 @@ async function cargarInvitados() {
     resultado.forEach((invitado) => {
       const fila = document.createElement("tr");
       fila.innerHTML = `
-                <td>${invitado.id}</td>
-                <td>${invitado.nombre}</td>
-                <td class="actions">
+                <td data-label="ID">${invitado.id}</td>
+                <td data-label="Nombre">${invitado.nombre}</td>
+                <td data-label="Acciones" class="actions">
                     <button onclick="abrirInvitacion('${invitado.id}')" class="btn-secondary">Ver Invitación</button>
                     <button onclick="compartirInvitacion('${invitado.id}')" class="btn-secondary">Compartir</button>
                     <button onclick="editarInvitado('${invitado.id}', '${invitado.nombre}')" class="btn-secondary">Editar</button>
