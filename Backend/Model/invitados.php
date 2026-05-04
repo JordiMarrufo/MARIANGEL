@@ -7,7 +7,6 @@ class Invitados
     // Propiedades
     public $id;
     public $nombre;
-    public $active;
 
     public function __construct($db)
     {

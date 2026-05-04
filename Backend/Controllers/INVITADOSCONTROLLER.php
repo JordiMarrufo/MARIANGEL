@@ -23,24 +23,69 @@ try {
             $this->invitados = new Invitados($db);
         }
 
-        // CREATE
-        public function crear($id, $nombre, $active)
+        // Generar ID único de 7 dígitos sin repeticiones consecutivas
+        private function generarIdUnico()
         {
+            $idValido = false;
+            $id = '';
+
+            while (!$idValido) {
+                // Generar 7 dígitos aleatorios
+                $id = '';
+                for ($i = 0; $i < 7; $i++) {
+                    $id .= rand(0, 9);
+                }
+
+                // Verificar que no haya dígitos consecutivos repetidos
+                $tieneRepetidos = false;
+                for ($i = 0; $i < 6; $i++) {
+                    if ($id[$i] === $id[$i + 1]) {
+                        $tieneRepetidos = true;
+                        break;
+                    }
+                }
+
+                if ($tieneRepetidos) {
+                    continue;
+                }
+
+                // Verificar que el ID no exista en la base de datos
+                $query = "SELECT id FROM invitados WHERE id = ?";
+                $stmt = $this->conn->prepare($query);
+                if (!$stmt) {
+                    throw new Exception('Error en prepare: ' . $this->conn->error);
+                }
+                $stmt->execute([$id]);
+                $result = $stmt->get_result();
+
+                if ($result->num_rows === 0) {
+                    $idValido = true;
+                }
+            }
+
+            return $id;
+        }
+
+        // CREATE - sin parámetro id, se genera automáticamente
+        public function crear($nombre)
+        {
+            $id = $this->generarIdUnico();
+
             $this->invitados->id = $id;
             $this->invitados->nombre = $nombre;
-            $this->invitados->active = $active;
 
             // Sanitizar
-            $this->invitados->id = htmlspecialchars(strip_tags($this->invitados->id));
             $this->invitados->nombre = htmlspecialchars(strip_tags($this->invitados->nombre));
-            $this->invitados->active = htmlspecialchars(strip_tags($this->invitados->active));
 
-            $query = "INSERT INTO invitados (id, nombre, active) VALUES (?, ?, ?)";
+            $query = "INSERT INTO invitados (id, nombre) VALUES (?, ?)";
             $stmt = $this->conn->prepare($query);
             if (!$stmt) {
                 throw new Exception('Error en prepare: ' . $this->conn->error);
             }
-            return $stmt->execute([$this->invitados->id, $this->invitados->nombre, $this->invitados->active]);
+            $resultado = $stmt->execute([$this->invitados->id, $this->invitados->nombre]);
+
+            // Retornar el ID generado junto con el resultado
+            return ['success' => $resultado, 'id' => $id];
         }
 
         // READ - Obtener todos
@@ -68,18 +113,17 @@ try {
         }
 
         // UPDATE
-        public function actualizar($id, $nombre, $active)
+        public function actualizar($id, $nombre)
         {
             $this->invitados->id = htmlspecialchars(strip_tags($id));
             $this->invitados->nombre = htmlspecialchars(strip_tags($nombre));
-            $this->invitados->active = htmlspecialchars(strip_tags($active));
 
-            $query = "UPDATE invitados SET nombre = ?, active = ? WHERE id = ?";
+            $query = "UPDATE invitados SET nombre = ? WHERE id = ?";
             $stmt = $this->conn->prepare($query);
             if (!$stmt) {
                 throw new Exception('Error en prepare: ' . $this->conn->error);
             }
-            return $stmt->execute([$this->invitados->nombre, $this->invitados->active, $this->invitados->id]);
+            return $stmt->execute([$this->invitados->nombre, $this->invitados->id]);
         }
 
         // DELETE
@@ -97,7 +141,7 @@ try {
 
     // Manejo de peticiones AJAX
     ob_clean(); // Limpia cualquier output previo
-    
+
     $data = json_decode(file_get_contents('php://input'), true);
     $accion = $data['accion'] ?? '';
 
@@ -109,8 +153,8 @@ try {
 
     switch ($accion) {
         case 'crear':
-            $resultado = $controller->crear($data['id'], $data['nombre'], $data['active']);
-            echo json_encode(['success' => $resultado]);
+            $resultado = $controller->crear($data['nombre']);
+            echo json_encode($resultado);
             break;
         case 'obtenerTodos':
             $resultado = $controller->obtenerTodos();
@@ -121,7 +165,7 @@ try {
             echo json_encode($resultado);
             break;
         case 'actualizar':
-            $resultado = $controller->actualizar($data['id'], $data['nombre'], $data['active']);
+            $resultado = $controller->actualizar($data['id'], $data['nombre']);
             echo json_encode(['success' => $resultado]);
             break;
         case 'eliminar':
@@ -131,7 +175,6 @@ try {
         default:
             throw new Exception('Acción no válida: ' . $accion);
     }
-
 } catch (Exception $e) {
     ob_clean();
     echo json_encode(['error' => $e->getMessage()]);

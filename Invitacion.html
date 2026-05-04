@@ -312,7 +312,7 @@
           Me gustaría contar con tu presencia y que puedas compartir conmigo
           este día tan especial:
         </p>
-        <p class="titulo-nombre">Mileidy N.</p>
+        <p class="titulo-nombre" id="actualizarnombre">Usuario No encontrado</p>
       </div>
 
       <div
@@ -393,3 +393,37 @@
   </body>
 </html>
 <script src="./js/repro.js"></script>
+<script>
+  // Obtener parámetro ID de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const invitadoId = urlParams.get("id");
+
+  // Si hay un ID, obtener los datos del invitado
+  if (invitadoId) {
+    const baseURL = "./Backend/Controllers/INVITADOSCONTROLLER.php";
+
+    fetch(baseURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        accion: "obtenerPorId",
+        id: invitadoId,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.nombre) {
+          // Actualizar usando el ID
+          const nombreElement = document.getElementById("actualizarnombre");
+          if (nombreElement) {
+            nombreElement.textContent = data.nombre;
+          }
+        }
+      })
+      .catch((error) =>
+        console.error("Error al obtener datos del invitado:", error),
+      );
+  }
+</script>

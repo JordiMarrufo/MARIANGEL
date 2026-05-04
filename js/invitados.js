@@ -3,8 +3,8 @@ const baseURL = '../Controllers/INVITADOSCONTROLLER.php';
 
 // Instancia del controlador (simulada con llamadas AJAX)
 class InvitadosAPI {
-    async crear(id, nombre, active) {
-        return this.enviarPeticion('crear', { id, nombre, active });
+    async crear(nombre) {
+        return this.enviarPeticion('crear', { nombre });
     }
 
     async obtenerTodos() {
@@ -15,8 +15,8 @@ class InvitadosAPI {
         return this.enviarPeticion('obtenerPorId', { id });
     }
 
-    async actualizar(id, nombre, active) {
-        return this.enviarPeticion('actualizar', { id, nombre, active });
+    async actualizar(id, nombre) {
+        return this.enviarPeticion('actualizar', { id, nombre });
     }
 
     async eliminar(id) {
@@ -60,7 +60,7 @@ async function cargarInvitados() {
         tbody.innerHTML = '';
 
         if (resultado.error) {
-            tbody.innerHTML = '<tr><td colspan="4">Error al cargar invitados</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="3">Error al cargar invitados</td></tr>';
             return;
         }
 
@@ -69,9 +69,10 @@ async function cargarInvitados() {
             fila.innerHTML = `
                 <td>${invitado.id}</td>
                 <td>${invitado.nombre}</td>
-                <td>${invitado.active == 1 ? '✓ Activo' : '✗ Inactivo'}</td>
                 <td class="actions">
-                    <button onclick="editarInvitado('${invitado.id}', '${invitado.nombre}', ${invitado.active})" class="btn-secondary">Editar</button>
+                    <button onclick="abrirInvitacion('${invitado.id}')" class="btn-secondary">Ver Invitación</button>
+                    <button onclick="compartirInvitacion('${invitado.id}')" class="btn-secondary">Compartir</button>
+                    <button onclick="editarInvitado('${invitado.id}', '${invitado.nombre}')" class="btn-secondary">Editar</button>
                     <button onclick="eliminarInvitado('${invitado.id}')" class="btn-danger">Eliminar</button>
                 </td>
             `;
@@ -82,28 +83,52 @@ async function cargarInvitados() {
     }
 }
 
+// Función para abrir la invitación en una ventana nueva
+function abrirInvitacion(id) {
+    window.open(`../../Invitacion.html?id=${id}`, '_blank');
+}
+
+// Función para compartir la invitación
+function compartirInvitacion(id) {
+    const enlace = `${window.location.origin}${window.location.pathname.replace(/\/[^\/]*$/, '')}/Invitacion.html?id=${id}`;
+    
+    // Si el dispositivo soporta Web Share API (móviles)
+    if (navigator.share) {
+        navigator.share({
+            title: 'Invitación XV Años de Mariangel',
+            text: 'Te invito a mis XV años',
+            url: enlace
+        }).catch(error => console.log('Error al compartir:', error));
+    } else {
+        // Copiar al portapapeles
+        navigator.clipboard.writeText(enlace).then(() => {
+            alert('Enlace copiado al portapapeles');
+        }).catch(err => {
+            alert('No se pudo copiar el enlace');
+        });
+    }
+}
+
 // Manejar envío del formulario (crear o actualizar)
 async function handleSubmitFormulario(e) {
     e.preventDefault();
 
-    const id = document.getElementById('id').value;
     const nombre = document.getElementById('nombre').value;
-    const active = document.getElementById('active').checked ? 1 : 0;
 
     try {
         let resultado;
 
         if (invitadoEnEdicion) {
             // Actualizar
-            resultado = await api.actualizar(id, nombre, active);
+            resultado = await api.actualizar(invitadoEnEdicion, nombre);
             if (!resultado.error) {
                 alert('Invitado actualizado correctamente');
             }
         } else {
-            // Crear
-            resultado = await api.crear(id, nombre, active);
+            // Crear - el ID se genera automáticamente en el backend
+            resultado = await api.crear(nombre);
             if (!resultado.error) {
-                alert('Invitado creado correctamente');
+                alert('Invitado creado correctamente con ID: ' + resultado.id);
             }
         }
 
@@ -119,13 +144,10 @@ async function handleSubmitFormulario(e) {
 }
 
 // Editar invitado
-async function editarInvitado(id, nombre, active) {
-    document.getElementById('id').value = id;
+async function editarInvitado(id, nombre) {
     document.getElementById('nombre').value = nombre;
-    document.getElementById('active').checked = active == 1;
     document.getElementById('btnSubmit').textContent = 'Actualizar Invitado';
     invitadoEnEdicion = id;
-    document.getElementById('id').disabled = true;
 }
 
 // Eliminar invitado
@@ -149,6 +171,5 @@ async function eliminarInvitado(id) {
 function limpiarFormulario() {
     document.getElementById('formularioInvitado').reset();
     document.getElementById('btnSubmit').textContent = 'Crear Invitado';
-    document.getElementById('id').disabled = false;
     invitadoEnEdicion = null;
 }
