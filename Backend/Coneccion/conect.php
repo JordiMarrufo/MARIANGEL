@@ -1,8 +1,8 @@
 <?php
 // Configuración de la base de datos
 $servername = "localhost";  // Tu servidor
-$username = "root";         // Tu usuario de BD
-$password = "root";             // Tu contraseña
+$username = "marixv";         // Tu usuario de BD
+$password = "marixv";             // Tu contraseña
 $dbname = "mariangel";      // Nombre de tu BD
 
 // Crear la conexión
