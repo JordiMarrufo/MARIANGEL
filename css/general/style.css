@@ -256,7 +256,11 @@ h1 {
   line-height: 1;
   color: #4a3728;
 }
-
+.letra-especial {
+  font-family: "SEGO", cursive;
+  color: #5a3f3a;
+  margin: 0;
+}
 .fecha {
   font-family: "Rabbits Bro", Arial, sans-serif;
   font-size: clamp(1.2em, 5vw, 2em);
